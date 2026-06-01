@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT直出一整套活动物料模板 · 教学指南</title>
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --surface-alt: #f5f4f1;
+            --text: #1c1c1a;
+            --text-secondary: #5c5b56;
+            --text-muted: #8b8a82;
+            --border: #e8e5dc;
+            --accent: #d4a853;
+            --accent-light: #faf3e3;
+            --accent-dark: #b8922e;
+            --tag-bg: #f0ede6;
+            --code-bg: #2a2824;
+            --code-text: #e8e4da;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+            --max-width: 880px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-wrap: pretty;
+        }
+
+        /* ── Navigation ── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 250, 249, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+        }
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+            gap: 24px;
+        }
+        .nav-brand {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text);
+            white-space: nowrap;
+            letter-spacing: -0.01em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .nav-links a:hover {
+            color: var(--text);
+            background: var(--surface-alt);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 72px 20px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent-dark);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+        }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .hero h1 .accent {
+            color: var(--accent-dark);
+        }
+        .hero p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            line-height: 1.65;
+        }
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .hero-meta .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        /* ── Main Layout ── */
+        .main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* ── Section ── */
+        .section {
+            margin-bottom: 64px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+        .section-number {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--accent-light);
+            color: var(--accent-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+        .section-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #d8d4c8;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ── Prompt Block ── */
+        .prompt-block {
+            background: var(--code-bg);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        .prompt-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .prompt-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+        }
+        .prompt-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .btn {
+            background: rgba(255,255,255,0.08);
+            color: #c8c4b8;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: var(--font-sans);
+        }
+        .btn:hover {
+            background: rgba(255,255,255,0.14);
+            color: #fff;
+        }
+        .btn.primary {
+            background: var(--accent);
+            color: #1c1c1a;
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+        .btn.primary:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+        .prompt-body {
+            padding: 24px 20px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--code-text);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .prompt-body .hl {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .prompt-body .hl-dim {
+            color: #9b978b;
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--code-bg);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 200;
+        }
+        .copy-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ── Grid ── */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        /* ── Material Category Card ── */
+        .mat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .mat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+        .mat-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #d8d4c8;
+            transform: translateY(-2px);
+        }
+        .mat-card:hover::before {
+            opacity: 1;
+        }
+        .mat-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .mat-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .mat-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .mat-list li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .mat-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        /* ── Step List ── */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+        .steps::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 12px;
+            bottom: 12px;
+            width: 2px;
+            background: var(--border);
+        }
+        .step-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .step-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--accent-dark);
+            flex-shrink: 0;
+        }
+        .step-content h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+        .step-content p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Tip Box ── */
+        .tip-box {
+            background: var(--accent-light);
+            border: 1px solid rgba(212, 168, 83, 0.25);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .tip-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .tip-content {
+            font-size: 13px;
+            color: var(--accent-dark);
+            line-height: 1.65;
+        }
+        .tip-content strong {
+            color: #8b6b15;
+        }
+
+        /* ── Tags ── */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background: var(--tag-bg);
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .tag:hover {
+            border-color: var(--accent);
+            color: var(--accent-dark);
+        }
+
+        /* ── Table ── */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .styled-table thead th {
+            background: var(--surface-alt);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 13px;
+            border-bottom: 2px solid var(--border);
+        }
+        .styled-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .styled-table tbody tr:hover td {
+            background: var(--surface-alt);
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 48px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        .footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .footer-credit {
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 48px 16px 36px;
+            }
+            .hero h1 {
+                font-size: 26px;
+            }
+            .hero p {
+                font-size: 15px;
+            }
+            .nav-links a {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .prompt-body {
+                font-size: 12px;
+                max-height: 350px;
+            }
+            .section-header h2 {
+                font-size: 20px;
+            }
+        }
+
+        /* ── Print ── */
+        @media print {
+            .nav { position: static; }
+            .btn { display: none; }
+            .copy-toast { display: none; }
+            .card { break-inside: avoid; }
+            .prompt-body { max-height: none; overflow: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <span class="nav-brand">活动物料生成指南</span>
+            <div class="nav-links">
+                <a href="#prompt">Prompt</a>
+                <a href="#materials">物料清单</a>
+                <a href="#specs">设计规范</a>
+                <a href="#extend">延展应用</a>
+                <a href="#workflow">使用流程</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Toast -->
+    <div class="copy-toast" id="toast">已复制到剪贴板</div>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">GPT · 活动物料</span>
+            <h1>GPT直出<span class="accent">一整套</span>活动物料</h1>
+            <p>一条Prompt即可生成线下活动的完整物料体系——从签到区到舞台区，从主KV到导视系统，附全套模板框架</p>
+            <div class="hero-meta">
+                <span>设计师阿番</span>
+                <span class="dot"></span>
+                <span>线下活动 · AI辅助设计</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Section 1: Prompt -->
+        <section class="section" id="prompt">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2>核心Prompt模板</h2>
+            </div>
+            <p class="section-desc">
+                下面这条Prompt是整套工作流的核心。将 <strong>方括号中的内容</strong> 替换为你的实际活动信息，直接发给GPT即可获得结构化的物料清单与规格说明。
+            </p>
+            <div class="prompt-block">
+                <div class="prompt-header">
+                    <span class="prompt-label">Prompt</span>
+                    <div class="prompt-actions">
+                        <button class="btn" onclick="copyPrompt()">复制全文</button>
+                    </div>
+                </div>
+                <div class="prompt-body" id="promptText">
+你是一位资深的活动物料设计师，擅长品牌视觉落地和线下活动物料规划。
+
+请根据以下信息，为我输出一整套线下活动的物料清单和设计规范：
+
+## 活动基本信息
+- <span class="hl">活动名称</span>：[填写活动名称]
+- <span class="hl">活动类型</span>：[发布会/展览/年会/市集/沙龙/庆典/路演]
+- <span class="hl">活动时间</span>：[YYYY-MM-DD]
+- <span class="hl">活动地点</span>：[城市 + 具体场地]
+- <span class="hl">预计人数</span>：[数字] 人
+- <span class="hl">预算档位</span>：[低/中/高/不限]
+
+## 品牌信息
+- <span class="hl">品牌名称</span>：[填写品牌名]
+- <span class="hl">品牌调性</span>：[科技/文艺/潮流/高端/亲民/自然]
+- <span class="hl">主色调</span>：[填写色值，如 #1a1a2e]
+- <span class="hl">辅助色</span>：[填写色值]
+- <span class="hl">Logo文件格式</span>：[AI/PNG/SVG]
+
+## 输出要求
+请按以下结构输出完整物料清单，每项包含：<span class="hl">物料名称、用途说明、建议尺寸、推荐材质、数量建议、设计要点</span>。
+
+### 一、签到区域
+- 签到背景板 / 合影墙
+- 签到台桌布/围挡
+- 指引水牌
+- 签到表 / 电子签到设备
+- 胸牌 / 手环
+- 礼品领取指引
+
+### 二、主视觉 & 品牌呈现
+- 主KV（活动主视觉海报）
+- 舞台LED/投影背景
+- 活动展架 / X展架
+- 易拉宝 / 门型展架
+- 横幅 / 吊旗
+- 品牌logo墙
+
+### 三、导视系统
+- 入口指引牌
+- 分区指引牌（签到区/主会场/休息区/卫生间）
+- 地面指引贴纸
+- 电梯/楼梯指引
+- 停车场指引
+- 安全出口标识
+
+### 四、舞台 & 主会场
+- 舞台背景板 / LED屏
+- 讲台/演讲台包装
+- 地毯（舞台/通道/红毯）
+- 灯光设备清单（灯光架/面光/染色灯）
+- 音响设备清单
+- 流程KT板 / 提词器
+
+### 五、展陈 & 互动区
+- 产品展示台 / 展柜
+- 互动装置说明牌
+- 拍照打卡区道具
+- 体验区物料（桌牌/说明卡）
+- 数据展板 / 历程墙
+
+### 六、礼品 & 周边
+- 伴手礼包装设计
+- 定制手提袋
+- 活动纪念品（徽章/贴纸/帆布袋）
+- 感谢卡 / 明信片
+- 品牌手册 / 折页
+
+### 七、物料延展清单
+- 社交媒体宣传图（朋友圈/公众号/小红书）
+- 活动预告海报
+- 现场直播封面
+- 活动回顾长图
+- 邀请函（电子版/纸质版）
+- 工作人员服装 / 工作证
+- 议程单 / 节目单
+
+## 附加输出
+- <span class="hl">物料规格总表</span>（表格形式，汇总所有物料名称、尺寸、数量）
+- <span class="hl">设计规范速查卡</span>（字体、主辅色、Logo使用规范、留白要求）
+- <span class="hl">制作优先级建议</span>（按时间线排列：设计确认→打样→制作→安装）
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Materials -->
+        <section class="section" id="materials">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2>物料清单总览</h2>
+            </div>
+            <p class="section-desc">
+                GPT会用这个结构化的Prompt输出<strong>7大区域、40+项物料</strong>的详细清单。以下是每一类的核心关注点：
+            </p>
+            <div class="grid-3">
+                <div class="mat-card">
+                    <span class="mat-icon">签到区</span>
+                    <h3>签到区物料</h3>
+                    <ul class="mat-list">
+                        <li>签到背景板 / 合影墙</li>
+                        <li>签到台桌布 / 围挡</li>
+                        <li>指引水牌</li>
+                        <li>签到表 / 电子签到</li>
+                        <li>胸牌 / 手环</li>
+                        <li>礼品领取指引</li>
+                    </ul>
+                </div>
+                <div class="mat-card">
+                    <span class="mat-icon">品牌</span>
+                    <h3>主视觉 & 品牌呈现</h3>
+                    <ul class="mat-list">
+                        <li>主KV海报</li>
+                        <li>舞台LED / 投影背景</li>
+                        <li>展架 / X展架</li>
+                        <li>易拉宝 / 门型展架</li>
+                        <li>横幅 / 吊旗</li>
+                        <li>品牌Logo墙</li>
+                    </ul>
+                </div>
+                <div class="mat-card">
+                    <span class="mat-icon">导视</span>
+                    <h3>导视系统</h3>
+                    <ul class="mat-list">
+                        <li>入口指引牌</li>
+                        <li>分区指引牌</li>
+                        <li>地面指引贴纸</li>
+                        <li>电梯 / 楼梯指引</li>
+                        <li>停车场指引</li>
+                        <li>安全出口标识</li>
+                    </ul>
+                </div>
+                <div class="mat-card">
+                    <span class="mat-icon">舞台</span>
+                    <h3>舞台 & 主会场</h3>
+                    <ul class="mat-list">
+                        <li>舞台背景板 / LED</li>
+                        <li>讲台 / 演讲台包装</li>
+                        <li>地毯（通道/红毯）</li>
+                        <li>灯光设备清单</li>
+                        <li>音响设备清单</li>
+                        <li>流程KT板 / 提词器</li>
+                    </ul>
+                </div>
+                <div class="mat-card">
+                    <span class="mat-icon">互动</span>
+                    <h3>展陈 & 互动区</h3>
+                    <ul class="mat-list">
+                        <li>产品展示台 / 展柜</li>
+                        <li>互动装置说明牌</li>
+                        <li>拍照打卡区道具</li>
+                        <li>体验区物料</li>
+                        <li>数据展板 / 历程墙</li>
+                    </ul>
+                </div>
+                <div class="mat-card">
+                    <span class="mat-icon">礼品</span>
+                    <h3>礼品 & 周边</h3>
+                    <ul class="mat-list">
+                        <li>伴手礼包装设计</li>
+                        <li>定制手提袋</li>
+                        <li>徽章 / 贴纸 / 帆布袋</li>
+                        <li>感谢卡 / 明信片</li>
+                        <li>品牌手册 / 折页</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Design Specs -->
+        <section class="section" id="specs">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2>设计规范要点</h2>
+            </div>
+            <p class="section-desc">
+                GPT输出的设计规范速查卡应包含以下核心要素，确保所有物料的视觉统一性：
+            </p>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">色彩系统</div>
+                    <div class="card-desc">
+                        <ul class="mat-list">
+                            <li>主色：用于关键元素、标题、CTA按钮</li>
+                            <li>辅色：背景、装饰、分区标识</li>
+                            <li>中性色：文字层级、背景区分</li>
+                            <li>强调色：重要提示、限时信息</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">字体规范</div>
+                    <div class="card-desc">
+                        <ul class="mat-list">
+                            <li>标题字体：建议使用品牌专用字体</li>
+                            <li>正文字体：易读性优先，避免花体</li>
+                            <li>数字字体：用于数据展示、倒计时</li>
+                            <li>字号层级：主标题 ≥ 正文 × 3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Logo使用规范</div>
+                    <div class="card-desc">
+                        <ul class="mat-list">
+                            <li>最小尺寸：印刷 ≥ 15mm，屏幕 ≥ 48px</li>
+                            <li>安全距离：Logo高度的 1/2</li>
+                            <li>放置位置：通常位于画面四角或顶部居中</li>
+                            <li>禁止变形、改变颜色、添加效果</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">版式与留白</div>
+                    <div class="card-desc">
+                        <ul class="mat-list">
+                            <li>出血位：印刷物料预留 3mm</li>
+                            <li>安全区：重要内容距边 ≥ 10mm</li>
+                            <li>网格系统：建议使用8px/10px基准网格</li>
+                            <li>信息层级：视觉动线从左到右、从上到下</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Extended Applications -->
+        <section class="section" id="extend">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2>延展应用清单</h2>
+            </div>
+            <p class="section-desc">
+                除了线下实体物料，GPT还会帮你列出线上宣传物料的完整清单，实现<strong>活动全链路覆盖</strong>：
+            </p>
+
+            <table class="styled-table card">
+                <thead>
+                    <tr>
+                        <th>物料类型</th>
+                        <th>用途</th>
+                        <th>推荐格式</th>
+                        <th>投放渠道</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>活动预告海报</strong></td>
+                        <td>活动前7-14天预热</td>
+                        <td>1080×1920px / A3</td>
+                        <td>朋友圈、公众号、社群</td>
+                    </tr>
+                    <tr>
+                        <td><strong>社交媒体宣传图</strong></td>
+                        <td>倒计时、嘉宾预告</td>
+                        <td>1080×1080px / 900×1600px</td>
+                        <td>小红书、微博、抖音</td>
+                    </tr>
+                    <tr>
+                        <td><strong>电子邀请函</strong></td>
+                        <td>定向邀约VIP/媒体</td>
+                        <td>H5页面 / 长图</td>
+                        <td>微信私发、邮件</td>
+                    </tr>
+                    <tr>
+                        <td><strong>现场直播封面</strong></td>
+                        <td>直播平台入口视觉</td>
+                        <td>900×500px / 16:9</td>
+                        <td>视频号、B站、抖音</td>
+                    </tr>
+                    <tr>
+                        <td><strong>活动回顾长图</strong></td>
+                        <td>活动后总结传播</td>
+                        <td>宽度 750px / 1080px</td>
+                        <td>公众号、朋友圈</td>
+                    </tr>
+                    <tr>
+                        <td><strong>议程单 / 节目单</strong></td>
+                        <td>现场发放给参与者</td>
+                        <td>A4 / A5 折页</td>
+                        <td>签到台、座位区</td>
+                    </tr>
+                    <tr>
+                        <td><strong>工作人员物料</strong></td>
+                        <td>服装、工作证、对讲机标签</td>
+                        <td>按实际定制</td>
+                        <td>现场工作人员</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 5: Workflow -->
+        <section class="section" id="workflow">
+            <div class="section-header">
+                <span class="section-number">5</span>
+                <h2>使用流程与技巧</h2>
+            </div>
+            <p class="section-desc">
+                掌握这套工作流程，从需求到物料清单只需<strong>5分钟</strong>：
+            </p>
+
+            <div class="steps">
+                <div class="step-item">
+                    <div class="step-dot">1</div>
+                    <div class="step-content">
+                        <h4>填写活动信息</h4>
+                        <p>将Prompt中的方括号内容替换为实际活动信息。越详细，GPT输出越精准。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot">2</div>
+                    <div class="step-content">
+                        <h4>发送给GPT</h4>
+                        <p>将完整Prompt发送给GPT-4或GPT-4o，建议勾选「联网搜索」获取最新材质和尺寸参考。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot">3</div>
+                    <div class="step-content">
+                        <h4>审核物料清单</h4>
+                        <p>逐项检查物料清单，确认尺寸、数量、材质是否符合实际场地和预算。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot">4</div>
+                    <div class="step-content">
+                        <h4>补充定制需求</h4>
+                        <p>如需特殊材质或特殊工艺（UV印刷、烫金、镂空等），继续追问GPT获取建议。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot">5</div>
+                    <div class="step-content">
+                        <h4>导出物料规格总表</h4>
+                        <p>让GPT以表格形式汇总所有物料，直接用于供应商询价和制作排期。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot">6</div>
+                    <div class="step-content">
+                        <h4>生成设计Brief</h4>
+                        <p>基于物料清单生成设计Brief，发给设计师进行视觉执行。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box" style="margin-top: 28px;">
+                <span class="tip-icon">提示</span>
+                <div class="tip-content">
+                    <strong>进阶技巧：</strong>可在Prompt末尾追加「请同时输出每个物料的设计提示词（Design Prompt），方便我用AI生图工具快速出初稿」，GPT会为每个物料生成对应的Midjourney/DALL·E提示词，加速设计流程。
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Templates -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2>模板框架速查</h2>
+            </div>
+            <p class="section-desc">
+                GPT输出的物料规格总表应包含以下字段。建议<strong>直接发给供应商</strong>进行询价：
+            </p>
+            <table class="styled-table card">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>物料名称</th>
+                        <th>尺寸 (mm)</th>
+                        <th>材质</th>
+                        <th>数量</th>
+                        <th>制作周期</th>
+                        <th>优先级</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>签到背景板</td>
+                        <td>3000×2400</td>
+                        <td>KT板覆亚膜</td>
+                        <td>1</td>
+                        <td>3天</td>
+                        <td>高</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>主KV海报</td>
+                        <td>1200×1800</td>
+                        <td>PP纸覆光膜</td>
+                        <td>4</td>
+                        <td>2天</td>
+                        <td>高</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>指引水牌</td>
+                        <td>600×900</td>
+                        <td>PVC板+金属支架</td>
+                        <td>8</td>
+                        <td>2天</td>
+                        <td>中</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>易拉宝</td>
+                        <td>800×2000</td>
+                        <td>相纸+铝合金架</td>
+                        <td>6</td>
+                        <td>2天</td>
+                        <td>中</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>胸牌/手环</td>
+                        <td>85×54 / 定制</td>
+                        <td>PVC卡+挂绳</td>
+                        <td>按人数</td>
+                        <td>5天</td>
+                        <td>中</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>伴手礼包装</td>
+                        <td>定制</td>
+                        <td>铜版纸+烫金</td>
+                        <td>按人数</td>
+                        <td>7天</td>
+                        <td>低</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box" style="margin-top: 20px;">
+                <span class="tip-icon">注意</span>
+                <div class="tip-content">
+                    <strong>以上为示例数据。</strong>实际使用中，GPT会根据你的活动信息和预算档位，自动调整材质建议和数量估算。建议在发给供应商前，根据实际场地尺寸进行二次确认。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>内容来源：小红书 <span class="footer-credit">设计师阿番</span> | 网页化 · 教学用途</p>
+        <p style="margin-top: 8px;">参考使用时请结合实际情况调整，GPT输出仅供框架参考</p>
+    </footer>
+
+    <script>
+        function copyPrompt() {
+            const text = document.getElementById('promptText').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+        }
+    </script>
+</body>
+</html>
